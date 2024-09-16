@@ -19,7 +19,8 @@
 
 
 --> SOME/IP: the Enabler of SOA in Automotive networks
-           - (Scalable service-oriented Middleware over IP)designed to make ethernet data transfer compatible with communication demands of Automotive ECUs.
+           - (Scalable service-oriented Middleware over IP)designed to make ethernet data 
+              transfer compatible with communication demands of Automotive ECUs.
            - SomeIP handles data-serialization,RPC(remote procedure call) and other essential tasks.
            -service req one ECU and Service provider another ecu works through sockets programming.
 
@@ -82,4 +83,66 @@ over IP coz ethernet based.
             stack |<------------->| stack
 
 
+--> flow of SOME/IP comm
+______________________________     ______________________
+                              |   |     
+      ECU-A (server)          |   |   ECU-B(server)
+      _________  ________     |   |     _________ 
+     |service 1||service2|    |   |    |service  |
+     |         ||        |    |   |    |         |
+     |  method || method`|    |<->|    |  method |
+     |    \/   ||  \/    |    |   |    |    \/   |
+     |  field  || field  |    |   |    |  field  |
+     |    ^    ||   ^    |    |   |    |    ^    |
+     |  event  || event  |    |   |    |  event  |
+      ---^-----  ---^----     |   |     -----^--- 
+_________|__________|_________|   |__________|____________  
+         |          |                        |
+        ECU-C/D(client)                    ECU-E(client)
+
+ 1)ECU-A providing service: is a method,has a field and also has a event
+ 2)Service instances: ecu's can have multiple services 
+ 3)service interface: when we need to connect we use interface
+ 4)Event: is a messgae communicated from server to client when 
+   something changed(value changed in field(status)so event 
+   accured,changed becoz somebody ran a method/function).
+   
+   METHOD : setter(changes value),getter(reads value),
+            request-response(call remotely,sends back data),
+            fire-forget(send data no returning)
+         
+
+     Method call:-               Event:-
+      ECU_A    ECU_B               client    server
+        |        |                   |        |
+with ret|*  req  |                   |*  subsc|
+        |   *    |                   |   *    |
+        |      * |                   |      * |
+        |       *|                   |       *|
+        |      * |                   |      * |
+        |   *    |                   |   *    |
+        |*  resp |                   |*  Ack  |
+
+   :ecu1 every 2sec need temprature from ecu2 so register/subscribe 
+    and every 2sec gets ,ecu3 dont need every 2sec but wants to 
+    read at some point then request  and get value.   
+
+--> SOME/IP Header
+   
+    MESSAGE ID(SERVICE ID/Method ID)[32bit]
+    LENGTH[32bit]
+    REQUEST ID(client/session ID)[32bit]
+    PROTOCOL VER[8bit] | INTERFACE VER[8bit] | MESSG TYPE[8bit]|return code[8bit]
+    PAYLOAD[variable size]
+
+--> network flow:
+    1)someip service discovery:services offered(multicast using 
+      udp)from provider to subscriber,client which is interested 
+      in the service it has to tell it and subscribe to event 
+      group. (client side/subscribe message is unicast)
+    2)work on data (exchange data):(req-response,)
+    3)TCP/IP stack:any comm using TCP it needs -3 way hand shake,
+      syn/synAck/AcksynAck      
+-->
+ 
 

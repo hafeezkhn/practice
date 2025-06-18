@@ -1,6 +1,5 @@
-# C plus plus
+[![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)](https://en.cppreference.com/w/)
 
-![C++ Logo](CPP.png)
 
 C++ is a multi-paradigm programming language that supports **lightweight abstractions** and provides **high performance** for system-level software.
 

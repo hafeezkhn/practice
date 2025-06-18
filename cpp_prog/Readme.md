@@ -17,7 +17,7 @@ C++ is a multi-paradigm programming language that supports **lightweight abstrac
 ## Core Highlights
 
 - Runtime efficiency is important in C++.
-- **Zero Overhead Principle** — you pay only for what you use.
+- **Zero Overhead Principle:** you pay only for what you use.
 - Classes with constructors, destructors, inheritance.
 - Support for generic programming and lambdas (functional style).
 - Direct mapping to hardware (no VM, native instruction support).
@@ -25,5 +25,6 @@ C++ is a multi-paradigm programming language that supports **lightweight abstrac
 - C++11 introduced threading, synchronization, and parallelism features.
 - Compatible with C: `struct` layouts match, allowing reuse of C libraries and system calls.
 - Generic programming helps **generalize** software components for better **reuse**.
+
 
 ---

@@ -1,4 +1,4 @@
-# 🧠 C++ Architecture & Design Cheatsheet – Interviews, Projects, Systems
+# 🧠 C++ Architecture & Design Cheatsheet 
 
 A full reference covering modern C++, design patterns, synchronization, IPC, embedded system use cases, and advanced system design topics.
 

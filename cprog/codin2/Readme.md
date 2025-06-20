@@ -236,27 +236,3 @@ int main() {
 
 ---
 
-## 🔖 Additional Study Topics
-
-### System Design Topics:
-
-* Resource Constrained Architectures (Embedded Edge)
-* Real-Time Scheduling (Priority Inversion, Deadlines)
-* Safety-Critical Software (ISO 26262)
-* Multicore Synchronization (lock-free queues, atomic ops)
-* Linux Device Drivers (Udev, Sysfs, Kernel IPC)
-* Debugging Techniques (GDB, Valgrind, Trace32)
-
-### References
-
-* "Effective Modern C++" — Scott Meyers
-* "C++ Concurrency In Action" — Anthony Williams
-* "Design Patterns" — Gamma et al.
-* "Real-Time Concepts for Embedded Systems" — Qing Li
-* POSIX IEEE 1003 Standard
-* AUTOSAR Software Architecture
-
----
-
-🧑‍💻 Created by **Hafiz – [Programmical](https://github.com/hafeezkhn)**
-🎯 For embedded developers, system programmers, and C++ software architects.
